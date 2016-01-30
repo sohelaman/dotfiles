@@ -1,16 +1,16 @@
 
 # Lazy Do Such Things
 
-## Shell Scripts
+## Shell Shortcuts
 **For Debian and derivatives.**
 **Requires superuser.**
 
 ****************************************************************************************
-Terminal command are shown with starting '$'. Exclude '$' while copying.
+Terminal commands are shown with starting '$'. Exclude '$' while copying.
 ****************************************************************************************
 
 ### Install
-First cd to *lazy_do_so* directory and enter following commands,
+Download source, 'cd' to *lazy_do_so* directory and enter following commands,
 ```shell
 $ chmod +x install.sh
 $ ./install.sh
