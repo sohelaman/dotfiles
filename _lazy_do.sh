@@ -27,3 +27,11 @@ clean() {
 	sudo apt-get autoclean ;
 	sudo apt-get clean ;
 }
+
+weather() {
+  if [[ -z $1 ]]; then
+    curl -4 'http://wttr.in/Dhaka'
+  else
+    curl -4 'http://wttr.in/'$1
+  fi
+}

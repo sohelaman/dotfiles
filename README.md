@@ -76,3 +76,9 @@ $ php.ini
 $ php-cli.ini
 $ my.cnf
 ```
+
+**9. Display weather in terminal. Thanks to *http://wttr.in/* REQUIRES cURL and internet.**
+```shell
+$ weather
+$ weather New\ Yrok
+```
