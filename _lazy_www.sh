@@ -52,14 +52,13 @@ webrestart() {
 ##  chown dirctories under www
 own() {
   if [[ -z $1 ]]; then
-    #sudo chown -R $USER:$USER `pwd` ;
-    #sudo chown -R www-data:www-data `pwd` ;
-    #sudo chmod -R 755 `pwd` ;
     echo "Argument required!" ;
   else
-    if [[ -d `pwd`/$1 ]]; then
-      sudo chown -R www-data:www-data `pwd`/$1 ;
-      echo "www-data chowned '$1'" ;
+    p=`realpath $1` ;
+    if [[ -d $p ]]; then
+      sudo chown -R www-data:www-data $p && echo "www-data chowned '$1'" ;
+    elif [[ -f $p ]]; then
+      sudo chown www-data:www-data $p && echo "www-data chowned '$1'" ;
     else
       echo "'$1' not found" ;
     fi
@@ -71,9 +70,11 @@ ownu() {
   if [[ -z $1 ]]; then
     echo "Argument required!" ;
   else
-    if [[ -d `pwd`/$1 ]]; then
-      sudo chown -R $USER:$USER `pwd`/$1 ;
-      echo "$USER chowned '$1'" ;
+    p=`realpath $1` ;
+    if [[ -d $p ]]; then
+      sudo chown -R $USER:$USER $p && echo "$USER chowned '$1'" ;
+    elif [[ -f $p ]]; then
+      sudo chown $USER:$USER $p && echo "$USER chowned '$1'" ;
     else
       echo "'$1' not found" ;
     fi
