@@ -43,3 +43,15 @@ record() {
     arecord -f cd $(pwd)/$1.wav
   fi
 }
+
+screengif() {
+  if [[ byzanz-record ]]; then
+    width=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f1)
+    height=$(xrandr --current | grep '*' | uniq | awk '{print $1}' | cut -d 'x' -f2)
+    byzanz-record --cursor --duration=$1 --x=0 --y=0 --width=$width --height=$height $2.gif
+  else
+    sudo apt-get install -y byzanz ;
+    echo 'Installed Byzanz' ;
+  fi
+}
+

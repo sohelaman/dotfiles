@@ -89,3 +89,8 @@ $ record	# Records to file ~/Music/record_<date_time>.wav
 $ record abc	# Records to file <Current Directory>/abc.wav
 ```
 
+**10. Record screen and save to a GIF file.**
+```shell
+$ screengif 15 abc	# Records 15 seconds and saves to file <Current Directory>/abc.gif
+```
+
