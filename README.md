@@ -82,3 +82,10 @@ $ my.cnf
 $ weather
 $ weather New\ Yrok
 ```
+
+**10. Record audio and save to a wav file.**
+```shell
+$ record	# Records to file ~/Music/record_<date_time>.wav
+$ record abc	# Records to file <Current Directory>/abc.wav
+```
+

@@ -35,3 +35,11 @@ weather() {
     curl -4 'http://wttr.in/'$1
   fi
 }
+
+record() {
+  if [[ -z $1 ]]; then
+    arecord -f cd ~/Music/record_$(date +%Y%m%d_%H%M%S).wav
+  else
+    arecord -f cd $(pwd)/$1.wav
+  fi
+}
