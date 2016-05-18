@@ -31,65 +31,71 @@ $ ./uninstall.sh
 
 ### Documentation
 
-**1. Shutdown easily.**
+**Shutdown easily.**
 ```shell
 $ term
 $ term --help
 ```
 
-**2. Edit Debian software sources. REQUIRES sudo.**
+**Edit Debian software sources. REQUIRES sudo.**
 ```shell
 $ src
 ```
 
-**3. Clean apt-cache and remove unnecessary packages. REQUIRES sudo.**
+**Shortcut for sudo apt-get install. REQUIRES sudo.**
+```shell
+$ get       # Executes sudo apt-get update
+$ get vim   # Executes sudo apt-get install vim
+```
+
+**Clean apt-cache and remove unnecessary packages. REQUIRES sudo.**
 ```shell
 $ clean
 ```
 
-**4. Cow says your fortune. Install REQUIRES sudo.**
+**Cow moos your fortune. Install REQUIRES sudo.**
 ```shell
 $ fortunecookie
 ```
 
-**5. Jump to www directory.**
+**Jump to www directory.**
 ```shell
 $ www
 ```
 
-**6. Start/stop/restart apache, mysql server. REQUIRES sudo.**
+**Start/stop/restart apache, mysql server. REQUIRES sudo.**
 ```shell
 $ webstart
 $ webstop
 $ webrestart
 ```
 
-**7. Tail of apache error log and access log. REQUIRES sudo.**
+**Tail of apache error log and access log. REQUIRES sudo.**
 ```shell
 $ errorlog
 $ accesslog
 ```
 
-**8. Edit php.ini and mysql.cnf. REQUIRES sudo.**
+**Edit php.ini and mysql.cnf. REQUIRES sudo.**
 ```shell
 $ php.ini
 $ php-cli.ini
 $ my.cnf
 ```
 
-**9. Display weather in terminal. Thanks to *http://wttr.in/* REQUIRES cURL and internet.**
+**Display weather in terminal. Thanks to *http://wttr.in/* REQUIRES cURL and internet.**
 ```shell
 $ weather
 $ weather New\ Yrok
 ```
 
-**10. Record audio and save to a wav file.**
+**Record audio and save to a wav file.**
 ```shell
-$ record	# Records to file ~/Music/record_<date_time>.wav
-$ record abc	# Records to file <Current Directory>/abc.wav
+$ record	     # Records to file ~/Music/record_<date_time>.wav
+$ record abc	 # Records to file <Current Directory>/abc.wav
 ```
 
-**10. Record screen and save to a GIF file.**
+**Record screen and save to a GIF file.**
 ```shell
 $ screengif 15 abc	# Records 15 seconds and saves to file <Current Directory>/abc.gif
 ```

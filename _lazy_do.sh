@@ -55,3 +55,10 @@ screengif() {
   fi
 }
 
+get() {
+  if [[ -z $1 ]]; then
+    sudo apt-get update
+  else
+    sudo apt-get install $1
+  fi
+}
