@@ -109,3 +109,75 @@ php-cli.ini() {
 my.cnf() {
 	sudo $editor /etc/mysql/my.cnf ;
 }
+
+##  create apache vhost
+vhost() {
+  vpath="/etc/apache2/sites-enabled"
+  helptxt="
+  Create virtual host:
+      vhost <hostname> </path/to/docRoot>
+  Delete virtual host:
+      vhost --delete <hostname>
+  Edit virtual host:
+      vhost --edit <hostname>
+  List virtual hosts:
+      vhost --list
+  Show this help:
+      vhost --help
+  "
+
+  if [[ -z $1 ]]; then
+    echo "Arguments required!"
+    echo $helptxt
+  else
+    if [[ $1 == '--help' ]]; then
+      echo $helptxt
+    elif [[ $1 == '--list' ]]; then
+      echo "sites-available:" && sudo ls "/etc/apache2/sites-available"
+      echo "\nsites-enabled:" && sudo ls $vpath
+    elif [[ $1 == '--delete' ]]; then
+      if [[ -z $2 ]]; then
+        echo "Nothing to delete!"
+      elif [[ ! -f "$vpath/$2.conf" ]]; then
+        echo "Vhost '$2' not found!"
+      else
+        sudo rm "/etc/apache2/sites-available/$2.conf" && sudo a2dissite $2.conf && echo "Deleted vhost"
+        if grep -q "$2" "/etc/hosts"; then
+          sudo sed -i.backup "/$2/d" "/etc/hosts" && echo "Removed entry from '/etc/hosts'.\nPlease restart apache2."
+        fi
+      fi
+    elif [[ $1 == '--edit' ]]; then
+      if [[ -z $2 ]]; then
+        echo "Nothing to edit!"
+      elif [[ ! -f "$vpath/$2.conf" ]]; then
+        echo "Vhost '$2' not found!"
+      else
+        sudo $editor "$vpath/$2.conf"
+      fi
+    elif [[ ! -z $1 && ! -z $2 ]]; then
+      if [[ "$1" =~ "^[A-Za-z0-9._]+$" && -d $2 ]]; then
+
+        echo ""
+vtemplate="<VirtualHost *:80>
+  ServerAdmin admin@example.com
+  ServerName $1
+  ServerAlias $1
+  DocumentRoot $2
+  ErrorLog \${APACHE_LOG_DIR}/error.log
+  CustomLog \${APACHE_LOG_DIR}/access.log combined
+</VirtualHost>"
+
+        avpath="/etc/apache2/sites-available/$1.conf"
+        sudo touch $avpath && echo $vtemplate | sudo tee $avpath && echo "\nAdded above apache2 vhost entry\n"
+        sudo a2ensite "$1.conf" && echo "Enabled new vhost\n"
+        sudo echo "127.0.0.1  $1" | sudo tee --append /etc/hosts && echo "Added above '/etc/hosts' entry\n"
+        echo "Vhost is ready. Please restart apache2 server.\n"
+      else
+        echo 'Invalid vhost name or docroot!'
+      fi
+    else
+      echo "Invalid argument!"
+      echo $helptxt
+    fi
+  fi
+}

@@ -83,6 +83,15 @@ $ php-cli.ini
 $ my.cnf
 ```
 
+**Create, edit, delete apache2 virtual hosts. REQUIRES sudo.**
+```shell
+$ vhost --help                                # Shows help
+$ vhost --list                                # Lists current virtual hosts
+$ vhost example.com /path/to/document/root    # Create virtual host
+$ vhost --edit example.com                    # Edit virtual host
+$ vhost --delete example.com                  # Delete virtual host
+```
+
 **Display weather in terminal. Thanks to *http://wttr.in/* REQUIRES cURL and internet.**
 ```shell
 $ weather
