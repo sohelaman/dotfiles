@@ -114,16 +114,16 @@ my.cnf() {
 vhost() {
   vpath="/etc/apache2/sites-enabled"
   helptxt="
-  Create virtual host:
-      vhost <hostname> </path/to/docRoot>
-  Delete virtual host:
-      vhost --delete <hostname>
-  Edit virtual host:
-      vhost --edit <hostname>
-  List virtual hosts:
-      vhost --list
-  Show this help:
-      vhost --help
+  Create virtual host:\n
+      vhost <hostname> </path/to/docRoot>\n
+  Delete virtual host:\n
+      vhost --delete <hostname>\n
+  Edit virtual host:\n
+      vhost --edit <hostname>\n
+  List virtual hosts:\n
+      vhost --list\n
+  Show this help:\n
+      vhost --help\n
   "
 
   if [[ -z $1 ]]; then
@@ -158,13 +158,13 @@ vhost() {
       if [[ "$1" =~ "^[A-Za-z0-9._]+$" && -d $2 ]]; then
 
         echo ""
-vtemplate="<VirtualHost *:80>
-  ServerAdmin admin@example.com
-  ServerName $1
-  ServerAlias $1
-  DocumentRoot $2
-  ErrorLog \${APACHE_LOG_DIR}/error.log
-  CustomLog \${APACHE_LOG_DIR}/access.log combined
+vtemplate="<VirtualHost *:80>\n
+  ServerAdmin admin@example.com\n
+  ServerName $1\n
+  ServerAlias $1\n
+  DocumentRoot $2\n
+  ErrorLog \${APACHE_LOG_DIR}/error.log\n
+  CustomLog \${APACHE_LOG_DIR}/access.log combined\n
 </VirtualHost>"
 
         avpath="/etc/apache2/sites-available/$1.conf"
