@@ -84,14 +84,24 @@ ownu() {
 ##  shows apache error log
 errorlog() {
   echo -e $f_red
-	sudo tail /var/log/apache2/error.log ;
+  re='^[0-9]+$'
+  if [[ ! -z $1 && $1 =~ $re ]] ; then
+    sudo tail -f -n $1 /var/log/apache2/error.log ;
+  else
+    sudo tail /var/log/apache2/error.log ;
+  fi
   echo " " ;
 }
 
 ##  shows apache access log
 accesslog() {
   echo -e $f_yellow
-	sudo tail /var/log/apache2/access.log ;
+  re='^[0-9]+$'
+  if [[ ! -z $1 && $1 =~ $re ]] ; then
+    sudo tail -f -n $1 /var/log/apache2/error.log ;
+  else
+    sudo tail /var/log/apache2/access.log ;
+  fi
   echo " " ;
 }
 
