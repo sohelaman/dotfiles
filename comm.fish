@@ -3,8 +3,8 @@
 
 export EDITOR=vim
 
-source /home/sohel/.shellinc/fish/fish_env_arch.fish
-source /home/sohel/.shellinc/fish/fish_paths.fish
-source /home/sohel/.shellinc/fish/fish_functions.fish
-source /home/sohel/.shellinc/fish/fish_functions_git.fish
-source /home/sohel/.shellinc/fish/fish_functions_misc.fish
+source ~/.shellinc/fish/fish_env_arch.fish
+source ~/.shellinc/fish/fish_paths.fish
+source ~/.shellinc/fish/fish_functions.fish
+source ~/.shellinc/fish/fish_functions_git.fish
+source ~/.shellinc/fish/fish_functions_misc.fish
