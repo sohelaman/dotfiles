@@ -12,7 +12,7 @@ $ cd ~
 $ git clone https://github.com/sohelaman/shellinc.git .shellinc
 ```
 
-Add following line to your fish config ***/home/sohel/.config/fish/config.fish*** file,
+Add following line to your fish config ***~/.config/fish/config.fish*** file,
 ```
 source ~/.shellinc/comm.fish
 ```
