@@ -11,7 +11,8 @@
 
 set $mod Mod4
 
-set $term terminator
+#set $term terminator
+set $term xfce4-terminal
 
 # Font for window titles. Will also be used by the bar unless a different font
 # is used in the bar {} block below.
@@ -36,6 +37,9 @@ floating_modifier $mod
 # start a terminal
 #bindsym $mod+Return exec i3-sensible-terminal
 bindsym $mod+Return exec $term
+
+bindsym $mod+Shift+Return exec --no-startup-id $term --role floating_term
+for_window [window_role=floating_term] floating enable
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -188,6 +192,7 @@ bindsym $mod+r mode "resize"
 bar {
         #position top
         #status_command i3status
+        font pango:Cantarell Bold 10
         status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
 
@@ -208,6 +213,7 @@ exec --no-startup-id gnome-settings-daemon
 exec_always --no-startup-id nm-applet
 exec_always --no-startup-id compton
 exec --no-startup-id volumeicon
+exec --no-startup-id xfce4-clipman
 
 
 bindsym $mod+q kill
@@ -248,4 +254,9 @@ mode $shutdown {
     bindsym Escape mode default
 }
 bindsym $mod+Shift+s mode $shutdown
+
+for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+for_window [class="mpv" instance="gl"] floating enable
+for_window [class="Xfce4-taskmanager"] floating enable
+
 
