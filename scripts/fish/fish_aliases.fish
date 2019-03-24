@@ -1,2 +1,2 @@
 
-alias cat=bat
+#alias cat=bat
