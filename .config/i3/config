@@ -213,10 +213,11 @@ bar {
 
 # Shutdown mode
 #
-set $shutdown "Shutdown now? (y|n|r|c)"
+set $shutdown "Shutdown now? (y|n|r|s|c)"
 mode $shutdown {
     bindsym y exec shutdown -h now, mode default
     bindsym r exec shutdown -r now, mode default
+    bindsym s exec sudo systemctl suspend, mode default
     bindsym c exec shutdown -c, mode default
     bindsym n mode default
     bindsym Escape mode default
@@ -251,8 +252,8 @@ bindsym Shift+Print exec --no-startup-id "sleep 0.2; gnome-screenshot -a"
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
 
 # Sreen brightness controls
-bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 10 # increase screen brightness
-bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 10 # decrease screen brightness
+bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
+bindsym XF86MonBrightnessDown exec --no-startup-id xbacklight -dec 5 # decrease screen brightness
 
 # Touchpad controls
 #bindsym XF86TouchpadToggle exec /some/path/toggletouchpad.sh # toggle touchpad
@@ -287,4 +288,5 @@ bindsym Mod1+3 exec $term -e htop
 for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
 for_window [class="mpv" instance="gl"] floating enable
 for_window [class="Xfce4-taskmanager"] floating enable
+for_window [class="File-roller"] floating enable
 

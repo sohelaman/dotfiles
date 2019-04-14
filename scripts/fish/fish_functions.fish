@@ -84,10 +84,11 @@ end
 
 function clean
   if type -q pacman
-    sudo pacman -Rsn (sudo pacman -Qdtq)
+    sudo pacman -Rsn (sudo pacman -Qdtq); sudo pacman -Scc;
   else if type -q apt
     sudo apt clean; sudo apt autoremove; sudo apt autoclean;
   else
     echo 'Package manager not supported'
   end
 end
+
