@@ -35,7 +35,7 @@ $ git clone https://github.com/sohelaman/dotfiles.git .dotfiles
 ### Run the installer script
 - Fish
 ```shell
-$ cd ~/.dotfiles && ./install.sh | tee ./logs/install_(date +%s).log
+$ cd ~/.dotfiles ; and ./install.sh | tee ./logs/install_(date +%s).log
 ```
 - Bash/Zsh
 ```shell
