@@ -35,13 +35,11 @@ $ git clone https://github.com/sohelaman/dotfiles.git .dotfiles
 ### Run the installer script
 - Fish
 ```shell
-$ cd ~/.dotfiles
-$ ./install.sh | tee ./logs/install_(date +%s).log
+$ cd ~/.dotfiles && ./install.sh | tee ./logs/install_(date +%s).log
 ```
 - Bash/Zsh
 ```shell
-$ cd ~/.dotfiles
-$ ./install.sh | tee ./logs/install_$(date +%s).log
+$ cd ~/.dotfiles && ./install.sh | tee ./logs/install_$(date +%s).log
 ```
 
 ### Manually include the bootstrap file to the Fish config
@@ -50,3 +48,5 @@ $ ./install.sh | tee ./logs/install_$(date +%s).log
 ```
 source ~/.dotfiles/scripts/scripts-bootstrap.fish
 ```
+
+I shall add docs on the fish shell shortcuts/aliases soon.
