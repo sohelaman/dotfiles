@@ -2,7 +2,7 @@
 # My Dotfiles
 
 ## For [Arch Linux](https://www.archlinux.org/), [Debian](https://www.debian.org/) or derivatives
-## Dotfiles include,
+## What's included
 - [Fish shell](http://fishshell.com/) shortcuts, aliases, etc.
 - [i3wm](https://i3wm.org/) and related configurations.
 - Couple other minor configs. See inside the [*config*](https://github.com/sohelaman/dotfiles/tree/master/configs) directory.
@@ -14,9 +14,9 @@
 ## Background
 - Dotfiles are quite personalized configurations. From my experiences, most of the time, one person does not like someone else's personalizations. Hence, it is always better not to use someone else's dotfiles entirely. Instead, go through and handpick what you like.
 - I would discourage using the included installer script as it is not tested like a practical software in various environments. If you wish to use it anyway, make sure to check the terminal output; which is again logged inside the *logs* directory.
-- At this point, this includes whatever I use now. I keep updating this; add/remove/modify as I prefer.
+- At any point, this includes whatever I use. I keep updating this; add/remove/modify as I prefer.
 
-## How To
+## Installation
 
 ### Clone the repo to the *home* directory
 ```shell
@@ -35,12 +35,12 @@ $ git clone https://github.com/sohelaman/dotfiles.git .dotfiles
 ### Run the installer script
 - Fish
 ```shell
-$ cd ~
+$ cd ~/.dotfiles
 $ ./install.sh | tee ./logs/install_(date +%s).log
 ```
 - Bash/Zsh
 ```shell
-$ cd ~
+$ cd ~/.dotfiles
 $ ./install.sh | tee ./logs/install_$(date +%s).log
 ```
 
