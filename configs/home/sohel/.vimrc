@@ -8,6 +8,8 @@ set tabstop=2
 set shiftwidth=2
 set expandtab
 
+let g:powerline_pycmd="py3"
+
 call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'scrooloose/nerdtree'
