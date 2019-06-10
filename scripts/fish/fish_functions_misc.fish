@@ -1,3 +1,0 @@
-
-# FOR FISH SHELL ONLY
-
