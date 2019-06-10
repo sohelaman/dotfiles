@@ -27,8 +27,8 @@ set $editor_ui subl
 
 # Variables
 #
-set $lockscreen ~/BG/spacex-2.png
-set $wallpaper ~/BG/spacex-2.png
+set $lockscreen ~/.dotfiles/assets/bg/red.png
+set $wallpaper ~/.dotfiles/assets/bg/blue.jpg
 
 ################################################################################
 ################################################################################
