@@ -10,3 +10,6 @@ curl -fLo ~/.vim/colors/sublimemonokai.vim --create-dirs https://raw.githubuserc
 
 # Install oh-my-fish
 curl -L https://get.oh-my.fish | fish
+
+# Install fisher
+curl https://git.io/fisher --create-dirs -sLo ~/.config/fish/functions/fisher.fish
