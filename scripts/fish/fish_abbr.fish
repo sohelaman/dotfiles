@@ -2,10 +2,18 @@
 # FOR FISH SHELL ONLY
 
 
+# Misc
+abbr -a date1 'date "+%F %T"'
+abbr -a date2 'date "+%F_%H%M%S"'
+abbr -a pac sudo pacman -S
+abbr -a apt sudo apt install
+abbr -a catssh 'cat ~/.ssh/id_rsa.pub | ssh USER@HOST "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"'
+
 # Git
-abbr -a -g gco git checkout
-abbr -a -g gcm git commit -m
-abbr -a -g gap git add -p
-abbr -a -g gpl git pull origin
-abbr -a -g gps git push origin
-abbr -a -g gbr git branch -r
+abbr -a g git
+abbr -a gco git checkout
+abbr -a gcm git commit -m
+abbr -a gap git add -p
+abbr -a gpl git pull origin
+abbr -a gps git push origin
+abbr -a gbr git branch -r

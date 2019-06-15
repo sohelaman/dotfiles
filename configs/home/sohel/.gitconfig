@@ -1,0 +1,16 @@
+
+[core]
+	fileMode = false
+[cola]
+	spellcheck = false
+[alias]
+	b = branch
+	cl = clone
+	cm = commit
+	co = checkout
+	d = diff
+	f = fetch
+	l = log
+	ls = ls-files
+	m = merge
+	s = status
