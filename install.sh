@@ -13,6 +13,7 @@ fileset_home+=(.config/compton.conf)
 fileset_home+=(.config/dunst/dunstrc)
 #fileset_home+=(.config/fish/config.fish)  # better done manually instead.
 fileset_home+=(.config/htop/htoprc)
+fileset_home+=(.xinitrc)
 fileset_home+=(.config/i3/config)
 fileset_home+=(.config/i3/i3blocks.conf)
 fileset_home+=(.config/mpv/mpv.conf)
