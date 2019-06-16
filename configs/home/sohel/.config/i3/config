@@ -207,9 +207,13 @@ bindsym $mod+Mod1+Right resize grow width 10 px or 10 ppt
 bar {
     #position top
     #status_command i3status
-    font pango:Cantarell Bold 10
+    font pango:Cantarell Bold 11
     status_command i3blocks -c ~/.config/i3/i3blocks.conf
 }
+
+# Window title format
+for_window [class=".*"] title_format "<span foreground='orange' font='15' face='Cantarell'><b> %instance</b></span> | %title"
+#for_window [class=".*"] title_format "<span foreground='orange' font='14' face='Cantarell'><b> %class</b></span>"
 
 # Shutdown mode
 #

@@ -1,44 +1,10 @@
 #!/bin/bash
 
-# Installer
-## CAUTION! Paths may vary from distro to distro.
-
-
-# --- Config filesets ---
-
-########################### <home> ######################################
-declare -a fileset_home
-fileset_home+=(.vimrc)
-fileset_home+=(.config/compton.conf)
-fileset_home+=(.config/dunst/dunstrc)
-#fileset_home+=(.config/fish/config.fish)  # better done manually instead.
-fileset_home+=(.config/htop/htoprc)
-fileset_home+=(.xinitrc)
-fileset_home+=(.config/i3/config)
-fileset_home+=(.config/i3/i3blocks.conf)
-fileset_home+=(.config/mpv/mpv.conf)
-#fileset_home+=(.config/polybar/config)
-fileset_home+=(.config/ranger/rc.conf)
-#fileset_home+=(.config/terminator/config)
-fileset_home+=(.config/vlc/vlcrc)
-#fileset_home+=(.config/vlc/vlc-qt-interface.conf)  # includes hardcoded username.
-fileset_home+=(.config/volumeicon/volumeicon)
-########################### </home> #####################################
-
-
-########################### <etc> #######################################
-declare -a fileset_etc
-fileset_etc+=(X11/xorg.conf.d/20-intel.conf)
-fileset_etc+=(X11/xorg.conf.d/70-synaptics.conf)
-########################### </etc> ######################################
-
-
-
-# --- Backbone ---
+# Installer Script
 
 
 ###
-# Core function
+# Place configs.
 #
 # arg $1 array of file name
 # arg $2 source base directory in this repo
@@ -96,11 +62,19 @@ function placeConfigurations() {
 }  # end of placeConfigurations()
 
 
+## Begin installation
+
+# source installer config
+THIS_SCRIPT_PATH=$(dirname `which $0`)
+source $THIS_SCRIPT_PATH/install.conf.sh
+
 # process different sets of configurations
-src_base_home=./configs/home/sohel  # base for files in this repo.
+src_base_home=$THIS_SCRIPT_PATH/configs/home/sohel  # base for files in this repo.
 target_base_home=~
 placeConfigurations fileset_home src_base_home target_base_home
 
-src_base_etc=./configs/etc
+src_base_etc=$THIS_SCRIPT_PATH/configs/etc
 target_base_etc=/etc
 placeConfigurations fileset_etc src_base_etc target_base_etc true
+
+echo 'All done.'

@@ -14,19 +14,17 @@
 ## Background
 - Dotfiles are quite personalized configurations. From my experiences, most of the time, one person does not like someone else's personalizations. Hence, it is always better not to use someone else's dotfiles entirely. Instead, go through and handpick what you like.
 - I would discourage using the included installer script as it is not tested like a practical software in various environments. If you wish to use it anyway, make sure to check the terminal output; which is again logged inside the *logs* directory.
-- At any point, this includes whatever I use. I keep updating this; add/remove/modify as I prefer.
 
 ## Installation
 
 ### Clone the repo to the *home* directory
 ```shell
-$ cd ~
-$ git clone https://github.com/sohelaman/dotfiles.git .dotfiles
+$ cd ~ && git clone https://github.com/sohelaman/dotfiles.git .dotfiles
 ```
 
-### Take a look at the [installer script](install.sh)
-- The installer script is called ***install.sh*** and resides at the root of this repository.
-- Verify the *fileset* arrays and confirm that all unnecessary scripts are commented out.
+### Take a look at the [installer configuration](install.conf.sh)
+- The installer uses a config script called ***install.conf.sh*** to determine what to install.
+- In that file, verify the *fileset* arrays and confirm that all unnecessary scripts are commented out.
 - For example, following script is commented out, I prefer to put the Fish config manually.
 ```shell
 #fileset_home+=(.config/fish/config.fish)
@@ -49,4 +47,4 @@ $ cd ~/.dotfiles && ./install.sh | tee ./logs/install_$(date +%s).log
 source ~/.dotfiles/scripts/scripts-bootstrap.fish
 ```
 
-I shall add docs on the fish shell shortcuts/aliases soon.
+I shall add docs on the Fish shell shortcuts/aliases soon.
