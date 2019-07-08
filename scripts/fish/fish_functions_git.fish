@@ -1,5 +1,5 @@
 
-# FOR FISH SHELL ONLY
+# FISH SHELL SCRIPT
 
 
 ###

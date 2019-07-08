@@ -1,5 +1,5 @@
 
-# FOR FISH SHELL ONLY
+# FISH SHELL SCRIPT
 
 
 # Utility functions for web developers
@@ -136,7 +136,7 @@ end
 ##
 function dumpdb
   if [ $argv[1] ]
-    set dbfilename (pwd)/$argv[1]_(date "+%Y-%m-%d_%H%M").sql.gz
+    set dbfilename (pwd)/$argv[1]_(date "+%F_%H%M%S").sql.gz
     mysqldump -u root -p $argv[1] | gzip -9 > $dbfilename ; echo Dumped $argv[1] to $dbfilename;
   end
 end

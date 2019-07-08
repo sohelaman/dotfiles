@@ -1,6 +1,10 @@
 
-# FOR FISH SHELL ONLY
+# FISH SHELL SCRIPT
 
+
+## .env files
+# dotenv ~/.env
+dotenv (dirname $DF_SCRIPTS_ROOT)/.env
 
 ## Variables
 

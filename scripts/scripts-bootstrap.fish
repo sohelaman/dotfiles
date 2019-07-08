@@ -2,5 +2,5 @@
 # FOR FISH SHELL ONLY
 
 
-set -U scripts_root ~/.dotfiles/scripts
-source $scripts_root/fish/_bootstrap.fish
+set -U DF_SCRIPTS_ROOT (dirname (status --current-filename))
+source $DF_SCRIPTS_ROOT/fish/_bootstrap.fish
