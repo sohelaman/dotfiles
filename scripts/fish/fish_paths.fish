@@ -11,7 +11,7 @@ if test $OS_ENV = 'arch'
 	set my_cnf_file '/etc/mysql/my.cnf'
 	set vhosts_file '/etc/httpd/conf/extra/httpd-vhosts.conf'
 else if test $OS_ENV = 'debian'; or test $OS_ENV = 'ubuntu'
-	set www_dir '/var/www'
+	set www_dir '/var/www/html'
 	set access_log_file '/var/log/apache2/access.log'
 	set error_log_file '/var/log/apache2/error.log'
 	set php_ini_file '/etc/php5/apache2/php.ini'
@@ -29,5 +29,5 @@ if type -q composer
 end
 
 if type -q java
-	set -Ux JAVA_HOME '/usr/lib/jvm/java-8-openjdk'
+  export JAVA_HOME=/usr/lib/jvm/default-java
 end

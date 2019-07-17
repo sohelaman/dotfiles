@@ -21,10 +21,10 @@ set OS_ENV (grep -E -o '^ID=(.*)$' /etc/os-release | awk -F "=" '{print $2}')
 
 # Validation
 if [ ! $OS_ENV ]
-    set_color red
+  set_color red
 	echo "The 'OS_ENV' variable is not defined. Some scripts and commands won't work."
-    echo -n "Please check the file: "
-    set_color yellow
-    echo (status --current-filename)
+  echo -n "Please check the file: "
+  set_color yellow
+  echo (status --current-filename)
 	set_color normal
 end
