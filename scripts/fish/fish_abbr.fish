@@ -19,9 +19,13 @@ abbr -a dcd docker-compose down
 
 # Git
 abbr -a g git
+abbr -a gs git status
+abbr -a gd git diff
+abbr -a gls git ls-files
 abbr -a gco git checkout
 abbr -a gcm git commit -m
 abbr -a gap git add -p
 abbr -a gpl git pull origin
 abbr -a gps git push origin
 abbr -a gbr git branch -r
+abbr -a gfa git fetch --all
