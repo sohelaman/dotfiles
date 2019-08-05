@@ -219,10 +219,10 @@ for_window [class=".*"] title_format "<span foreground='orange' font='15' face='
 #
 set $shutdown "Shutdown now? (y|n|r|s|c)"
 mode $shutdown {
-    bindsym y exec shutdown -h now, mode default
-    bindsym r exec shutdown -r now, mode default
+    bindsym y exec sudo shutdown now, mode default
+    bindsym r exec sudo shutdown -r now, mode default
     bindsym s exec sudo systemctl suspend, mode default
-    bindsym c exec shutdown -c, mode default
+    bindsym c exec sudo shutdown -c, mode default
     bindsym n mode default
     bindsym Escape mode default
 }
