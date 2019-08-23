@@ -80,3 +80,18 @@ function change_extension
     end
   end
 end
+
+###
+# Powersave
+#
+# USE WITH CAUTION!
+##
+function powersave
+  if not test -z $argv[1]; and test $argv[1] = 'off'
+    set cpumaxmhz (lscpu | grep 'CPU max MHz' | awk '{print $4}' | grep -o '[0-9]\+' | head -n1)MHz
+    sudo cpupower frequency-set -u "$cpumaxmhz" && echo "Frequency set to $cpumaxmhz"
+  else
+    set cpuminmhz 1000MHz
+    sudo cpupower frequency-set -u "$cpuminmhz" && echo "Frequency set to $cpuminmhz"
+  end
+end
