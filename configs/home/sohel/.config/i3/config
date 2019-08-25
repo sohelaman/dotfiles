@@ -247,10 +247,6 @@ exec --no-startup-id xfce4-clipman
 bindsym Mod1+Tab focus right
 bindsym $mod+Tab exec rofi -theme Monokai -font "hack 16" -show window
 
-bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ unmute
-bindsym XF86AudioLowerVolume  exec --no-startup-id amixer -q sset Master 5%- unmute
-bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle
-
 # Gnome Screenshot
 #bindsym Print exec --no-startup-id gnome-screenshot
 #bindsym Shift+Print exec --no-startup-id "sleep 0.2; gnome-screenshot -a"
@@ -265,6 +261,19 @@ bindsym Shift+Print exec --no-startup-id flameshot gui
 #bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume 0 +5% #increase sound volume
 #bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume 0 -5% #decrease sound volume
 #bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute 0 toggle # mute sound
+
+# Alsa Mixer volume controls
+#bindsym XF86AudioRaiseVolume exec --no-startup-id amixer -q sset Master 5%+ unmute
+#bindsym XF86AudioLowerVolume exec --no-startup-id amixer -q sset Master 5%- unmute
+#bindsym XF86AudioMute exec --no-startup-id amixer -q sset Master toggle #has unmute issue on some devces.
+
+# Volume controls using pamixer
+bindsym XF86AudioRaiseVolume exec --no-startup-id pamixer -u && pamixer --increase 5 \
+        && notify-send "Volume: $(pamixer --get-volume)%" -t 200
+bindsym XF86AudioLowerVolume exec --no-startup-id pamixer -u && pamixer --decrease 5 \
+        && notify-send "Volume: $(pamixer --get-volume)%" -t 200
+bindsym XF86AudioMute exec --no-startup-id pamixer -t \
+        && [[ $(pamixer --get-mute) == true ]] && notify-send "Mute" -t 500 || notify-send "Unmute" -t 500
 
 # Sreen brightness controls
 bindsym XF86MonBrightnessUp exec --no-startup-id xbacklight -inc 5 # increase screen brightness
