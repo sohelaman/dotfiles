@@ -1,7 +1,6 @@
 #!/bin/bash
 
-# clickable volume
-
+## `full_text`
 case $BLOCK_BUTTON in
   # left click
   1) val=$(zenity --scale --value=$(pamixer --get-volume) --text=Volume) \
@@ -15,3 +14,17 @@ case $BLOCK_BUTTON in
   # any mouse button
   *) [[ $(pamixer --get-mute) == true ]] && echo "Mute" || echo $(pamixer --get-volume)% ;;
 esac
+
+vol=$(pamixer --get-volume)
+
+## `short_text`
+echo "$vol%"
+
+## `color`
+if [[ "$vol" -ge 60 && "$vol" -lt 80 ]]; then
+  echo '#FFFF00'
+elif [[ "$vol" -ge 80 ]]; then
+  echo '#FF0000'
+fi
+
+exit 0
