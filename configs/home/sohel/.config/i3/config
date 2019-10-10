@@ -215,7 +215,7 @@ bar {
 }
 
 # Window title format
-for_window [class=".*"] title_format "<span foreground='orange' font='15' face='Cantarell'><b> %instance</b></span> | %title"
+for_window [class=".*"] title_format "<span foreground='orange' size='small' font='16' face='Cantarell'><b> %instance</b></span> | %title"
 #for_window [class=".*"] title_format "<span foreground='orange' font='14' face='Cantarell'><b> %class</b></span>"
 
 # Shutdown mode
@@ -244,7 +244,10 @@ exec --no-startup-id xfce4-clipman
 
 # Hotkeys
 #
+#bindsym Mod1+Tab exec --no-startup-id i3-alt-tab --next
+#bindsym Mod1+Shift+Tab exec --no-startup-id i3-alt-tab --prev
 bindsym Mod1+Tab focus right
+bindsym Mod1+Shift+Tab focus left
 bindsym $mod+Tab exec rofi -theme Monokai -font "hack 16" -show window
 
 # Gnome Screenshot
