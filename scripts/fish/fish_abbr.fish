@@ -16,6 +16,7 @@ abbr -a di docker images
 abbr -a dc docker-compose
 abbr -a dcu docker-compose up -d
 abbr -a dcd docker-compose down
+abbr -a dce docker-compose exec
 
 # Git
 abbr -a g git
@@ -25,12 +26,13 @@ abbr -a gm git merge
 abbr -a gs git status
 abbr -a gls git ls-files
 abbr -a glo git log --oneline --graph
+abbr -a gco git checkout
 abbr -a gcp git cherry-pick
 abbr -a gls git ls-files
-abbr -a gcm git commit -m
+abbr -a gcm git commit -m "Fixes"
 abbr -a gap git add -p
 abbr -a gpl git pull origin
 abbr -a gps git push origin
 abbr -a gbr git branch -r
 abbr -a gfa git fetch --all
-abbr -a gta git tag -a 1.0 -m "v1.0"
+abbr -a gta git tag -a 1.0 -m "Version 1.0"

@@ -9,15 +9,21 @@ dotenv (dirname $DF_SCRIPTS_ROOT)/.env
 ## Variables
 
 export EDITOR=vim
-set fish_greeting ""  # Suppresses the welcome message
+
+# Suppresses the welcome message
+set fish_greeting
 
 # Identify the OS
 set OS_ENV (grep -E -o '^ID=(.*)$' /etc/os-release | awk -F "=" '{print $2}')
 
+if test $OS_ENV = 'manjaro'; or test $OS_ENV = 'archbang'; or test $OS_ENV = 'antergos'
+	set OS_ENV 'arch'
+end
+
 # Manually set the OS_ENV variable if above does not work.
-#set OS_ENV 'arch'  # Arch Linux or Manjaro.
-#set OS_ENV 'ubuntu'  # Ubuntu, elementary OS, etc.
-#set OS_ENV 'debian'  # Debian, Kali Linux, etc.
+#set OS_ENV 'arch'		# Arch Linux or Manjaro.
+#set OS_ENV 'ubuntu'	# Ubuntu, elementary OS, etc.
+#set OS_ENV 'debian'	# Debian, Kali Linux, etc.
 
 # Validation
 if [ ! $OS_ENV ]
