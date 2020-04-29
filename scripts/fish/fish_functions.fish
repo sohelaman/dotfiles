@@ -18,8 +18,10 @@ end
 function clean
   if type -q pacman
     sudo pacman -Rsn (sudo pacman -Qdtq); sudo pacman --noconfirm -Scc;
-  else if type -q apt-get
-    sudo apt-get clean; sudo apt-get autoremove; sudo apt-get autoclean;
+  else if type -q apt
+    sudo apt clean; sudo apt autoremove; sudo apt autoclean
+  else if type -q dnf
+    echo 'TODO'
   else
     echo 'Package manager not supported'
   end

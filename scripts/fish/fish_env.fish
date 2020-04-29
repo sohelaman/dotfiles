@@ -3,21 +3,23 @@
 
 
 ## .env files
-# dotenv ~/.env
 dotenv (dirname $DF_SCRIPTS_ROOT)/.env
 
 ## Variables
+if [ ! $EDITOR ]
+    export EDITOR=vim
+end
 
-export EDITOR=vim
-
-# Suppresses the welcome message
+# Suppresses the fish shell welcome message
 set fish_greeting
 
 # Identify the OS
-set OS_ENV (grep -E -o '^ID=(.*)$' /etc/os-release | awk -F "=" '{print $2}')
+if [ ! $OS_ENV ]
+    set OS_ENV (grep -E -o '^ID=(.*)$' /etc/os-release | awk -F "=" '{print $2}')
+end
 
 if test $OS_ENV = 'manjaro'; or test $OS_ENV = 'archbang'; or test $OS_ENV = 'antergos'
-	set OS_ENV 'arch'
+    set OS_ENV 'arch'
 end
 
 # Manually set the OS_ENV variable if above does not work.
@@ -27,10 +29,10 @@ end
 
 # Validation
 if [ ! $OS_ENV ]
-  set_color red
-	echo "The 'OS_ENV' variable is not defined. Some scripts and commands won't work."
-  echo -n "Please check the file: "
-  set_color yellow
-  echo (status --current-filename)
-	set_color normal
+    set_color red
+    echo "The 'OS_ENV' variable is not defined. Some scripts and commands won't work."
+    echo -n "Please check the file: "
+    set_color yellow
+    echo (status --current-filename)
+    set_color normal
 end
