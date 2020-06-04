@@ -31,6 +31,10 @@ abbr -a dcd docker-compose down
 abbr -a dce docker-compose exec
 abbr -a doc cd $www_dir/me/dockerized
 
+# Artisan
+abbr -a pas php artisan serve
+abbr -a pacc 'php artisan cache:clear && php artisan config:clear && php artisan clear-compiled'
+
 # Git
 abbr -a g git
 abbr -a gd git diff
