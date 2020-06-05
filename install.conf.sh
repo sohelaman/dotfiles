@@ -11,6 +11,7 @@ declare -a fileset_home
 
 fileset_home+=(.vimrc)
 fileset_home+=(.tmux.conf)
+fileset_home+=(.local/share/nautilus/scripts/copy-path.sh)
 #fileset_home+=(.config/compton.conf)
 #fileset_home+=(.config/dunst/dunstrc)
 #fileset_home+=(.config/fish/config.fish)  # better done manually instead.
