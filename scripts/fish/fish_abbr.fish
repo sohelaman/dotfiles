@@ -3,6 +3,7 @@
 
 
 # Misc
+abbr -a ls exa
 abbr -a date1 'date "+%F %T"'
 abbr -a date2 'date "+%F_%H%M%S"'
 abbr -a catssh 'cat ~/.ssh/id_rsa.pub | ssh USER@HOST "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"'

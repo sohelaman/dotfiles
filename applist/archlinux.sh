@@ -3,7 +3,7 @@
 ## Apps for Arch Linux
 
 # General
-sudo pacman -S neofetch htop tmux chrome-gnome-shell flatpak gthumb ntfs-3g exfat-utils mlocate entr time vifm mpv vlc pass jq bat bmon nethogs xsel unrar p7zip lm_sensors
+sudo pacman -S neofetch htop tmux chrome-gnome-shell flatpak gthumb ntfs-3g exfat-utils mlocate entr time vifm mpv vlc pass jq bat bmon nethogs xsel unrar p7zip lm_sensors fzf fd ripgrep glances asciinema exa ncdu
 sudo pacman -S ttf-dejavu ttf-roboto ttf-droid ttf-ubuntu-font-family ttf-croscore ttf-liberation
 sudo pacman -S git code filezilla php nodejs npm docker docker-compose gimp
 sudo pacman -S chromium firefox libreoffice-fresh
