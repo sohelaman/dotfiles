@@ -21,7 +21,7 @@ function clean
   else if type -q apt
     sudo apt clean; sudo apt autoremove; sudo apt autoclean
   else if type -q dnf
-    echo 'TODO'
+    sudo dnf autoremove; sudo dnf clean packages
   else
     echo 'Package manager not supported'
   end

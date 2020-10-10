@@ -34,6 +34,6 @@ fileset_home+=(.config/vlc/vlcrc)
 # configuration fileset for `/etc` directory
 declare -a fileset_etc
 
-fileset_etc+=(X11/xorg.conf.d/20-intel.conf)
-fileset_etc+=(X11/xorg.conf.d/70-synaptics.conf)
+#fileset_etc+=(X11/xorg.conf.d/20-intel.conf)
+#fileset_etc+=(X11/xorg.conf.d/70-synaptics.conf)
 # --------------------------------- </etc> ---------------------------------- #
