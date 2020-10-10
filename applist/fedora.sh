@@ -64,4 +64,5 @@ dnf install docker-ce docker-ce-cli containerd.io
 systemctl start docker
 systemctl enable docker
 usermod -aG docker $USER
-
+## Fix error: cgroup mountpoint does not exist. Run following and reboot. https://poweruser.blog/how-to-install-docker-on-fedora-32-f2606c6934f1
+grubby --update-kernel=ALL --args="systemd.unified_cgroup_hierarchy=0"
