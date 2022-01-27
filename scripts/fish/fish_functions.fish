@@ -97,3 +97,18 @@ function powersave
     sudo cpupower frequency-set -u "$cpuminmhz" && echo "Frequency set to $cpuminmhz"
   end
 end
+
+###
+# Random password
+#
+# $argv[1] length
+##
+function randpass
+  if [ ! $argv[1] ]
+    set passlen 20
+  else
+    set passlen $argv[1]
+  end 
+
+  tr -dc A-Za-z0-9\!\@\#\$\%\^\&\(\)\<\>\.\, </dev/urandom | head -c $passlen; echo ''
+end
