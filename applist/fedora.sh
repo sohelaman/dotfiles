@@ -50,7 +50,7 @@ dnf check-update
 
 ## Common tools and apps
 dnf install vim tmux fish
-dnf install htop neofetch mlocate entr time vifm pass jq bat bmon nethogs xsel unrar p7zip lm_sensors fzf ripgrep glances asciinema exa ncdu
+dnf install htop nvtop neofetch mlocate entr time vifm pass jq bat bmon nethogs xsel unrar p7zip lm_sensors fzf ripgrep glances asciinema exa ncdu xbindkeys
 dnf install gthumb gimp filezilla pulseeffects mpv vlc
 dnf install snapd
 dnf -y install anydesk sublime-text code

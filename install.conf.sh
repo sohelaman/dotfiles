@@ -10,6 +10,7 @@
 declare -a fileset_home
 
 fileset_home+=(.vimrc)
+fileset_home+=(.xbindkeysrc)
 fileset_home+=(.tmux.conf)
 fileset_home+=(.local/share/nautilus/scripts/copy-path.sh)
 #fileset_home+=(.config/compton.conf)

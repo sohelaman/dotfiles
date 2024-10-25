@@ -1,0 +1,7 @@
+# bind
+#"xdotool key ctrl+v"
+"xdotool key Right"
+  b:8
+
+"xdotool key Left"
+  b:9
