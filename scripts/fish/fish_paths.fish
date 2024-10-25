@@ -1,7 +1,7 @@
 
 # FISH SHELL SCRIPT
 
-if [ ! -z $DOCUMENT_ROOT ]
+if [ -d $DOCUMENT_ROOT ]
     set www_dir $DOCUMENT_ROOT
 end
 

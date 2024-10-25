@@ -3,7 +3,7 @@
 
 
 # Misc
-abbr -a ls exa
+abbr -a ll exa -lah
 abbr -a date1 'date "+%F %T"'
 abbr -a date2 'date "+%F_%H%M%S"'
 abbr -a catssh 'cat ~/.ssh/id_rsa.pub | ssh USER@HOST "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"'
@@ -34,7 +34,8 @@ abbr -a doc cd $www_dir/me/dockerized
 
 # Artisan
 abbr -a pas php artisan serve
-abbr -a pacc 'php artisan cache:clear && php artisan config:clear && php artisan clear-compiled'
+abbr -a pao php artisan optimize
+abbr -a pacc 'php artisan cache:clear && php artisan route:clear && php artisan config:clear && php artisan clear-compiled'
 
 # Git
 abbr -a g git
