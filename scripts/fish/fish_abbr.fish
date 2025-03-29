@@ -28,9 +28,9 @@ abbr -a d docker
 abbr -a di docker images
 abbr -a dc docker compose
 abbr -a docker-compose docker compose
-abbr -a dcu docker-compose up -d
-abbr -a dcd docker-compose down
-abbr -a dce docker-compose exec
+abbr -a dcu docker compose up -d
+abbr -a dcd docker compose down
+abbr -a dce docker compose exec
 abbr -a doc cd $www_dir/dockerized/docroot
 
 # Artisan

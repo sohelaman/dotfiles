@@ -1,7 +1,11 @@
 # bind
 #"xdotool key ctrl+v"
-"xdotool key Right"
-  b:8
+#"xdotool key Right"
+#  b:8
 
-"xdotool key Left"
-  b:9
+#"xdotool key Left"
+#  b:9
+
+## DISABLING DUE TO BUG
+# https://discussion.fedoraproject.org/t/todays-update-of-mutter-breaks-simulating-key-presses-with-xdotool/98216
+
