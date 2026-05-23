@@ -18,3 +18,5 @@ end
 if type -q java; and [ -z $JAVA_HOME ]
     export JAVA_HOME=/usr/lib/jvm/default-java
 end
+
+set -gx PATH $PATH ~/Apps/llama.cpp/latest

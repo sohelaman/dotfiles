@@ -3,7 +3,7 @@
 
 
 # Misc
-abbr -a ll exa -lah
+abbr -a ll eza -lah
 abbr -a date1 'date "+%F %T"'
 abbr -a date2 'date "+%F_%H%M%S"'
 abbr -a catssh 'cat ~/.ssh/id_rsa.pub | ssh USER@HOST "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"'
@@ -57,3 +57,8 @@ abbr -a gb git branch
 abbr -a gbr git branch -r
 abbr -a gfa git fetch --all --tags
 abbr -a gta git tag -a 1.0 -m "Version 1.0"
+
+# Distrobox
+abbr -a db distrobox
+abbr -a dbs distrobox enter sandbox
+
