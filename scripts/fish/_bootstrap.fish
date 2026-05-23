@@ -16,5 +16,6 @@ source $DF_SCRIPTS_ROOT/fish/fish_functions.fish
 source $DF_SCRIPTS_ROOT/fish/fish_functions_git.fish
 source $DF_SCRIPTS_ROOT/fish/fish_functions_www.fish
 
-/usr/bin/xbindkeys
-
+if type -q /usr/bin/xbindkeys
+    /usr/bin/xbindkeys
+end
