@@ -13,8 +13,14 @@ set -gx PATH $PATH /home/sohel/.lmstudio/bin
 # End of LM Studio CLI section
 
 
-# Hermes Agent — ensure ~/.local/bin is on PATH
-fish_add_path "$HOME/.local/bin"
-
 # opencode
 fish_add_path /home/sohel/.opencode/bin
+
+if test -f /run/.containerenv; and grep -q "name=\"sandbox\"" /run/.containerenv
+  echo "Inside sandbox"
+
+  # Hermes Agent — ensure ~/.local/bin is on PATH
+  fish_add_path "$HOME/.local/bin"
+  fish_add_path /home/sohel/.hermes/node/bin
+end
+

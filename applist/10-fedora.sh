@@ -1,5 +1,7 @@
 #!/bin/bash
 
+## Fedora 44
+
 ## Apps for Fedora Workstation
 
 dnf check-update
@@ -12,6 +14,8 @@ dnf makecache
 
 dnf install @development-tools
 dnf install @sound-and-video
+dnf install langpacks-bn
+# dnf install google-noto-sans-bengali-fonts lohit-bengali-fonts
 
 ## Common tools and apps
 dnf install vim tmux fish unrar p7zip wget fastfetch

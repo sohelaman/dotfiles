@@ -1,7 +1,7 @@
 
 # My Dotfiles
 
-## For [Arch Linux](https://www.archlinux.org/), [Debian](https://www.debian.org/) or derivatives
+## For [Fedora](https://fedoraproject.org), [Arch Linux](https://www.archlinux.org/), [Debian](https://www.debian.org/) or derivatives
 ## What's included
 - [Fish shell](http://fishshell.com/) shortcuts, aliases, etc.
 - [i3wm](https://i3wm.org/) and related configurations.
@@ -22,8 +22,8 @@
 $ cd ~ && git clone https://github.com/sohelaman/dotfiles.git .dotfiles
 ```
 
-### Take a look at the [installer configuration](install.conf.sh)
-- The installer uses a config script called ***install.conf.sh*** to determine what to install.
+### Take a look at the [installer configuration](conf.sh)
+- The installer uses a config script called ***conf.sh*** to determine what to install.
 - In that file, verify the *fileset* arrays and confirm that all unnecessary scripts are commented out.
 - For example, following script is commented out, I prefer to put the Fish config manually.
 ```shell

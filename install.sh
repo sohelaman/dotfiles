@@ -66,7 +66,7 @@ function placeConfigurations() {
 
 # source installer config
 THIS_SCRIPT_PATH=$(dirname `which $0`)
-source $THIS_SCRIPT_PATH/install.conf.sh
+source $THIS_SCRIPT_PATH/conf.sh
 
 # process different sets of configurations
 src_base_home=$THIS_SCRIPT_PATH/configs/home/sohel  # base for files in this repo.
