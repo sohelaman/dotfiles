@@ -19,3 +19,4 @@ docker pull ghcr.io/ggml-org/llama.cpp:server
 ## Distrobox images. RUN WITH NON-ROOT USER.
 distrobox create -n sandbox -i fedora:44
 distrobox create -n ubuntu -i ubuntu:26.04
+distrobox create -n alpine -i alpine:3

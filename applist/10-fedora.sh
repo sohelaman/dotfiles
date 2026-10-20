@@ -20,16 +20,17 @@ dnf install langpacks-bn
 ## Common tools and apps
 dnf install vim tmux fish unrar p7zip wget fastfetch
 dnf install htop nvtop bmon nethogs iotop lm_sensors
-dnf install busybox entr time vifm pass jq bat eza xsel fzf ripgrep glances asciinema ncdu
-dnf install xbindkeys xdotool
+dnf install busybox entr time vifm pass jq bat eza xsel fzf ripgrep glances asciinema ncdu shellcheck
+dnf install git git-lfs git-extras tig
 dnf install gthumb gimp filezilla mpv vlc shotcut
 dnf install podman distrobox
 dnf install bottles virtualbox
-dnf install httpd nginx
+dnf install httpd nginx mysql
 dnf php php-cli php-fpm php-mysqli
 dnf install lua python3-pip golang
 dnf install java-latest-openjdk-devel.x86_64 temurin-8-jdk.x86_64
 dnf install dotnet-sdk-10.0
+# dnf install xbindkeys xdotool
 # dnf install snapd
 # dnf install pulseeffects
 

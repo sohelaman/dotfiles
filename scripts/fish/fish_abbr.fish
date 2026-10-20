@@ -27,7 +27,7 @@ end
 abbr -a d docker
 abbr -a di docker images
 abbr -a dc docker compose
-abbr -a docker-compose docker compose
+abbr -a dcc 'docker container prune && docker network prune && docker volume prune'
 abbr -a dcu docker compose up -d
 abbr -a dcd docker compose down
 abbr -a dce docker compose exec
@@ -60,5 +60,6 @@ abbr -a gta git tag -a 1.0 -m "Version 1.0"
 
 # Distrobox
 abbr -a db distrobox
-abbr -a dbs distrobox enter sandbox
+abbr -a dev distrobox enter devbox
 
+abbr -a llama.cpp ~/Apps/llama.cpp/launcher.sh -v -o debug.log
