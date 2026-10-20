@@ -14,7 +14,8 @@ dnf makecache
 
 dnf install @development-tools
 dnf install @sound-and-video
-dnf install langpacks-bn
+dnf install langpacks-bn langpacks-en
+localectl set-locale LANG=en_US.UTF-8
 # dnf install google-noto-sans-bengali-fonts lohit-bengali-fonts
 
 ## Common tools and apps

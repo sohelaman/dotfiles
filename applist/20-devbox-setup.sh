@@ -18,6 +18,7 @@
 #   INSTALL_MSSQL=yes              MS ODBC 18 + sqlcmd + sqlsrv (accepts Microsoft EULA)
 #   INSTALL_XDEBUG=yes             Xdebug for every PHP version
 #   DEBIAN_MIRROR=http://deb.debian.org/debian   e.g. a local mirror
+#   DEFAULT_LOCALE=en_US.UTF-8     System locale (generated and set as LANG)
 #
 #   e.g.  INSTALL_MSSQL=no PHP_VERSIONS="8.4 8.3" bash devbox-setup.sh
 #
@@ -27,7 +28,7 @@
 set -Eeuo pipefail
 
 if [[ "${1:-}" == "-h" || "${1:-}" == "--help" ]]; then
-  sed -n '2,27p' "$0"; exit 0
+  sed -n '2,28p' "$0"; exit 0
 fi
 
 # ----------------------------- Configuration ---------------------------------
@@ -42,6 +43,11 @@ INSTALL_ORACLE="${INSTALL_ORACLE:-yes}"
 INSTALL_MSSQL="${INSTALL_MSSQL:-yes}"
 INSTALL_XDEBUG="${INSTALL_XDEBUG:-yes}"
 DEBIAN_MIRROR="${DEBIAN_MIRROR:-http://deb.debian.org/debian}"
+DEFAULT_LOCALE="${DEFAULT_LOCALE:-en_US.UTF-8}"
+
+# Until $DEFAULT_LOCALE is generated (step_locale), use Debian's built-in UTF-8 locale so a host
+# LANG forwarded by distrobox doesn't cause "cannot change locale" warnings from apt/perl.
+export LANG=C.UTF-8 LC_ALL=C.UTF-8
 
 STAMP="$(date +%Y%m%d-%H%M%S)"
 LOG_FILE="${LOG_FILE:-/tmp/devbox-setup-${STAMP}.log}"
@@ -231,6 +237,15 @@ step_base() {
 }
 
 # ------------------------------- Tool groups ---------------------------------
+step_locale() {
+  install_group "Locale ($DEFAULT_LOCALE)" locales
+  "${SUDO[@]}" sed -i -E "s/^# *(${DEFAULT_LOCALE//./\\.} .*)/\\1/" /etc/locale.gen
+  grep -qE "^${DEFAULT_LOCALE//./\\.} " /etc/locale.gen \
+    || write_file /etc/locale.gen "$DEFAULT_LOCALE UTF-8"
+  "${SUDO[@]}" locale-gen
+  "${SUDO[@]}" update-locale LANG="$DEFAULT_LOCALE"
+}
+
 # Debian renames a few binaries; provide the familiar names.
 alias_bin() {  # alias_bin <debian-name> <usual-name>
   if command -v "$1" >/dev/null 2>&1 && ! command -v "$2" >/dev/null 2>&1; then
@@ -530,6 +545,7 @@ step_shell_env() {
 # Managed by devbox-setup.sh
 export DOTNET_CLI_TELEMETRY_OPTOUT=1
 export DOTNET_NOLOGO=1
+export LANG=__LOCALE__
 for _d in /opt/mssql-tools18/bin /usr/lib/oracle/*/client64/bin "$HOME/go/bin" "$HOME/.dotnet/tools" "$HOME/.local/bin"; do
   if [ -d "$_d" ]; then
     case ":$PATH:" in *":$_d:"*) ;; *) PATH="$PATH:$_d" ;; esac
@@ -548,6 +564,7 @@ EOF
 # Managed by devbox-setup.sh
 set -gx DOTNET_CLI_TELEMETRY_OPTOUT 1
 set -gx DOTNET_NOLOGO 1
+set -gx LANG __LOCALE__
 for d in /opt/mssql-tools18/bin /usr/lib/oracle/*/client64/bin $HOME/go/bin $HOME/.dotnet/tools $HOME/.local/bin
     test -d $d; and fish_add_path -aP $d
 end
@@ -595,6 +612,8 @@ java -version 2>&1 | head -n 1
 echo "Run 'exec \$SHELL' to refresh JAVA_HOME."
 EOF
   "${SUDO[@]}" chmod 0755 /usr/local/bin/php-use /usr/local/bin/jdk-use
+
+  "${SUDO[@]}" sed -i "s/__LOCALE__/$DEFAULT_LOCALE/" /etc/profile.d/devbox.sh /etc/fish/conf.d/devbox.fish
 
   /usr/local/bin/jdk-use "$DEFAULT_JDK" || warn "Could not set default JDK $DEFAULT_JDK"
 }
@@ -696,6 +715,14 @@ summary() {
 main() {
   preflight
   run_step "Base system & repositories" step_base
+  run_step "Locale"                     step_locale
+  # Steps run in subshells, so export here: every later apt/dpkg/configure/make uses this locale
+  # (LC_ALL also overrides any LC_* forwarded from the host by distrobox).
+  if locale -a 2>/dev/null | grep -qix "${DEFAULT_LOCALE//UTF-8/utf8}\|$DEFAULT_LOCALE"; then
+    export LANG="$DEFAULT_LOCALE" LC_ALL="$DEFAULT_LOCALE"
+  else
+    warn "Locale $DEFAULT_LOCALE was not generated — continuing with the inherited locale"
+  fi
   run_step "Common tools"               step_common
   run_step "Useful tools"               step_useful
   run_step "Monitoring tools"           step_monitoring

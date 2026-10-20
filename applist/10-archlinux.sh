@@ -2,6 +2,10 @@
 
 ## Apps for Arch Linux
 
+## Locale
+sudo sed -i 's/^#\(en_US.UTF-8 UTF-8\)/\1/' /etc/locale.gen && sudo locale-gen
+sudo localectl set-locale LANG=en_US.UTF-8
+
 ## General
 sudo pacman -S neofetch htop tmux chrome-gnome-shell flatpak gthumb ntfs-3g exfat-utils mlocate entr time vifm mpv vlc pass jq bat bmon nethogs xsel unrar p7zip lm_sensors fzf fd ripgrep glances asciinema exa ncdu
 sudo pacman -S ttf-dejavu ttf-roboto ttf-droid ttf-ubuntu-font-family ttf-croscore ttf-liberation
